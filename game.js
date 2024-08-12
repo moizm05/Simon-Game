@@ -47,9 +47,13 @@ function nextSequence(){
     var randomChosenColour = buttonColours[randomNum];
     gamePattern.push(randomChosenColour);
 
-    var colour = $("#"+randomChosenColour);
-    colour.fadeOut(150).fadeIn(150);
-    playSound(randomChosenColour);
+    for(let i = 0; i < gamePattern.length; i++){
+        let colour = $("#"+gamePattern[i]);
+        setTimeout(function(){
+            playSound(gamePattern[i]);
+            colour.fadeOut(150).fadeIn(150);
+        },300*i);
+    }
     index = 0;
     userPattern = [];
 }
