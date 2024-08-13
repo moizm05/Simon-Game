@@ -9,30 +9,31 @@
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div class="row">
-      <div type="button" id="green" class="btn green">
-
-      </div>
-
-      <div type="button" id="red" class="btn red">
-
-      </div>
+  <h1 class="starting-h1">Sim<img src="./game-logo.png" class="logo" alt="game logo"/>n Game</h1>
+  <div class="start-container"><div type="button" class="text start">Start Game</div></div>
+  <div id="game" class="hide">
+    <div class="game-container">
+        <div type="button" id="green" class="btn green"></div>
+        <div type="button" id="red" class="btn red"></div>
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
     </div>
-
-    <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
-      </div>
-      <div type="button" id="blue" class="btn blue">
-
-      </div>
-
-    </div>
-
   </div>
+  <div id="rules-modal" class="modal hide">
+    <div class="rules-content">
+      <span class="close-button">&times;</span>
+      <h2>Rules</h2>
+      <ol>
+        <li>Press START button; SIMON will give the first signal.</li>
+        <li>Repeat the signal by pressing the same lens.</li>
+        <li>SIMON will duplicate the first signal and will add one.</li>
+        <li>Repeat these two signals by pressing the same lenses.</li>
+       <li>SIMON will duplicate these first two signals and add one.</li>
+       <li>Continue in this manner as long as you can repeat each se-quence of signals correctly.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="rules-button-container"><div type="button" class="rules-button text">Show Rules</div></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="./game.js"></script>
