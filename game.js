@@ -6,9 +6,15 @@ var index = 0;
 
 function checkAnswer(index1){
     if(userPattern[index1] != gamePattern[index1]){
-        $("h1").css({"font-size": "2.3rem"});
-        $("h1").text("Game Over! Press Any Key To Restart")
+        $("h1").css({"font-size": "5rem"});
+        $("#game").addClass("hide");
+        $(".start-container").removeClass("hide");
+        $(".start").text("Play Again")
+        $(".rules-button-container").removeClass("hide");
+        $("h1").removeClass("text").addClass("starting-h1");
+        $("h1").html("Sim<img src='game-logo.png' class='logo'/>n Game");
         $(document.body).addClass("game-over");
+
         setTimeout(function(){
             $(document.body).removeClass("game-over");
         },300);
@@ -65,10 +71,26 @@ $(".btn").click(function(){
     animatePress(chosenColour);
     checkAnswer(index);
     index++;
-})
+});
 
-$(document).keydown(function(event){
+$(".start").click(function(event){
+    $("#game").removeClass("hide");
+    $(".start-container").addClass("hide");
+    $(".rules-button-container").addClass("hide");
+    $("h1").removeClass("starting-h1").addClass("text");
     nextSequence();
     $("h1").css({"font-size": "3rem"});
     $("h1").text("Level " + level);
-})
+});
+
+$(".rules-button").click(function(event){
+    $(".start-container").addClass("hide");
+    $(".rules-button-container").addClass("hide");
+    $(".modal").removeClass("hide");
+});
+
+$(".close-button").click(function(event){
+    $(".modal").addClass("hide");
+    $(".start-container").removeClass("hide");
+    $(".rules-button-container").removeClass("hide");
+});
